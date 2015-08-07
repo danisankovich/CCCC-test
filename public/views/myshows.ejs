@@ -1,0 +1,18 @@
+<div class='container'>
+  <h2 class='inventoryheader'>My Inventory</h2>
+  <div ng-repeat="show in myShows" class='mylistings col-sm-4 col-sm-offset'>
+    <div class="singlecar">
+      <img src='{{show.imageUrl}}' class='marketplaceimg'>
+      <div class='mycarinfo'>
+        <ul class='mycarlist'>
+          <li><button ui-sref="editshow" class='todeletepage btn btn-primary' ng-click="editingLink(show)">Edit Listing</button></li>
+          <li><button class="deletebutton btn btn-danger" ng-click="deleteShow(show)">Delete</button></li>
+          <li>Theater: {{show.theater}} &nbsp;</li>
+          <li>Year: {{show.day}} &nbsp;</li>
+          <li>Time: {{show.time}} &nbsp;</li>
+          <li>Occurrence: {{show.occurrence}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

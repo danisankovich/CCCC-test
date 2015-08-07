@@ -1,0 +1,22 @@
+<div class='container'>
+  <div class="row">
+    <h1 class='pendingheader'>Offer A Show</h1>
+
+    <div class="col-sm-4 col-sm-offset-1 box">
+      <img ng-src='{{selectedShow.imageUrl}}' class="marketplaceimg">
+      <div class='boxblock'>
+        <ul class='desiredinfo'>
+          <li>Theater: {{selectedShow.theater}}</li>
+          <li>Day(s) of Week: {{selectedShow.day}}</li>
+          <li>Time: {{selectedShow.time}}</li>
+          <li>Occurrence: {{selectedShow.occurrence}}</li>
+          <li>Organizer: {{selectedShow.userName}}
+        </ul>
+      </div>
+    </div>
+    <div class="col-sm-3 col-sm-offset-2 offerbutton" ng-repeat="show in myShows">
+      <button class='btn btn-primary' ng-click="myShowToTrade(selectedShow, show)">Trade Show</button>
+      <span class="myshowtooffer">{{show.day}} {{show.theater}}</span>
+    </div>
+  </div>
+</div>

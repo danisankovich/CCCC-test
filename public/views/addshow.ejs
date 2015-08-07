@@ -1,0 +1,22 @@
+<div class="container">
+  <div>
+    <h2 class='addcarheader'>Add Listing</h2>
+    <h4 class='addinstructions'>Please input the information for your show below</h4>
+  </div>
+  <div class='well col-sm-8'>
+    <form ng-submit="addingShow(addShow)">
+         <div class="row">
+           <div class='col-sm-4 col-sm-offset-1'>
+             <input ng-model="addShow.theater"  placeholder="Show Theater" class="form-control add-field" required>
+             <input ng-model="addShow.day" placeholder="Day" class="form-control add-field" required>
+             <input ng-model="addShow.time" placeholder="Time" class="form-control add-field" required>
+           </div>
+           <div class='col-sm-4 col-sm-offset-1'>
+             <input ng-model="addShow.occurrence" placeholder="Occurrence" class="form-control add-field" required>
+             <input ng-model="addShow.imageUrl" placeholder="image url" class='form-control add-field'>
+             <button type="submit" class="btn btn-primary add-show">Add Show Listing</button>
+           </div>
+         </div>
+       </form>
+  </div>
+</div>

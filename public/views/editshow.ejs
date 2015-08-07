@@ -1,0 +1,22 @@
+<div class="container">
+  <div>
+    <h2 class='editshowheader'>Edit Show</h2>
+    <h4 class='editinstructions'>Edit your show's information in the fields provided.</h4>
+  </div>
+  <div class='well'>
+    <form ng-submit="editingShow(editShow)">
+         <div class="row">
+           <div class='col-sm-6'>
+             <input ng-model="editShow.theater" placeholder="Show Theater" class="form-control" required>
+             <input ng-model="editShow.day" placeholder="Day" class="form-control" required>
+             <input ng-model="editShow.time" placeholder="Time" class="form-control" required>
+           </div>
+           <div class='col-sm-6'>
+             <input ng-model="editShow.occurence" placeholder="Occurrence" class="form-control" required>
+             <input ng-model="editShow.imageUrl" placeholder="image url" class='form-control'>
+             <button type="submit" class="btn btn-primary">Submit Changes</button>
+           </div>
+         </div>
+       </form>
+  </div>
+</div>

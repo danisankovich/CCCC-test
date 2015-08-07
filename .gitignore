@@ -1,0 +1,7 @@
+<<<<<<< HEAD
+bower_components
+node_modules
+=======
+node_modules/
+>>>>>>> master
+.DS_Store

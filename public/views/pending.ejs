@@ -1,0 +1,37 @@
+<div class='container'>
+  <div class='row'>
+    <div>
+      <h1 class='pendingheader'>Pending Offers</h1>
+    </div>
+    <div class='col-sm-10 col-sm-offset-1'>
+      <div ng-repeat="offer in tradeOffers" class='eachOfferSet'>
+        <div class='col-sm-4 offertd'>
+          <span class='thisOffer'>{{offer.selectedShow.userName}} Will Trade Their {{offer.selectedShow.theater}}</span>
+          <ul class='pendingCarInfo'>
+            <li>Day: {{offer.selectedShow.day}} </li>
+            <li>Time: {{offer.selectedShow.time}} </li>
+            <li>Occurrence: {{offer.selectedShow.occurrence}} </li>
+            <li>
+              <img ng-src='{{offer.selectedShow.imageUrl}}' class="pendingImage">
+            </li>
+          </ul>
+        </div>
+        <div class='col-sm-4 offertd'>
+          <span class='thisOffer'>For Your {{offer.myShow.theater}}</span>
+          <ul class='pendingCarInfo'>
+            <li>Day: {{offer.myShow.day}}</li>
+            <li>Time: {{offer.myShow.time}}</li>
+            <li>Occurrence: {{offer.myShow.occurrence}}</li>
+            <li>
+              <img ng-src='{{offer.myShow.imageUrl}}' class='pendingImage'>
+              <div class='tradebuttons'>
+                <button ng-click="acceptOffer(offer)" class='btn btn-primary'>Accept Offer</button>
+                <button ng-click="declineOffer(offer)" class='btn btn-danger'>Decline Offer</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
