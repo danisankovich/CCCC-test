@@ -1,25 +1,23 @@
   <div class='col-sm-offset-1'>
-  <div class='marketplaceheader'>
+  <div class='eventsheader'>
     <h2 class="showlistings">Show Listings</h2>
     <h4 class='instructions'>Browse through the shows that have been advertised.</h4>
     <h4 class='instructions'>If you come across one you like, click the 'View Show' for more information.</h4>
   </div>
   <div class='container'>
-  <div ng-repeat="show in showInventory" class='thelistings'>
+  <div class='filter col-sm-6 col-sm-offset-4'><label>Filter: <input ng-model="searchText"></label></div>
+  <div ng-repeat="show in showEvents| filter:searchText" class='thelistings'>
     <div class='col-sm-3 col-sm-offset-1 box'>
-      <img src='{{show.imageUrl}}' class='marketplaceimg'>
-      <div class='buttonholder'>
+      <img src='{{show.imageUrl}}' class='eventslistingsimg'>
         <ul class='listinglist'>
-          <li>Theater Name: {{show.theater}}</li>
+          <li>City: {{show.city}}</li>
+          <li>Zip Code: {{show.zipCode}}</li>
           <li>Day: {{show.day}}</li>
           <li>Time: {{show.time}}</li>
-          <li>Occurrence: {{show.occurrence}}</li>
-          <li>Organizer: {{show.userName}}</li>
         </ul>
         <button class='btn btn-default tradebutton'>
-          <a ui-sref="trade" ng-click="selectedTradeShow(show)">View Show</a>
+          <a ui-sref="viewshow" ng-click="selectedFavoriteShow(show)">View Show</a>
         </button>
-      </div>
     </div>
   </div>
 </div>

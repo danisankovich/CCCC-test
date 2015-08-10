@@ -1,0 +1,34 @@
+<div class='container'>
+  <div class="row">
+    <h1 class='showinfoheader'>Show Information</h1>
+    <h2 class='castName'>{{selectedShow.castName}}</h2>
+    <div class='col-sm-offset-2 col-sm-7'>
+      <img ng-src='{{selectedShow.viewUrl}}' class="eventsimg">
+    </div>
+    <div class="col-sm-3 col-sm-offset viewbox">
+      <div class='boxblock'>
+        <ul class='desiredinfo'>
+          <li>Theater: {{selectedShow.theater}}</li>
+          <br>
+          <li>{{selectedShow.address}},
+            <br>{{selectedShow.city}}, {{selectedShow.st}}<br> {{selectedShow.zipCode}}</li>
+          <hr>
+          <li style='text-align: center'>Show Time</li>
+          <br>
+            <li>{{selectedShow.day}}, {{selectedShow.time}}</li>
+          <hr>
+          <li>Phone Number: {{selectedShow.contactNumber}}</li>
+          <hr>
+          <li>Organizer Email: {{selectedShow.contactEmail}}</li>
+          <hr>
+          <div>
+            <button class='btn btn-danger' ng-click="myShowToFavorite(selectedShow, show)">Add To Favorites</button>
+          </div>
+        </ul>
+      </div>
+    </div>
+    <div class='col-sm-offset-2 col-sm-7 thatinfobox'>
+      <div class='col-sm-offset col-sm-10 otherinfo'>{{selectedShow.otherinfo}}</div>
+    </div>
+  </div>
+</div>

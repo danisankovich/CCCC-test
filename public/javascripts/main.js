@@ -24,9 +24,9 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
       templateUrl: 'views/addshow.ejs',
       controller: 'ListingsCtrl'
     })
-    .state('trade', {
-      url: '/trade',
-      templateUrl: 'views/trade.ejs',
+    .state('viewshow', {
+      url: '/viewshow',
+      templateUrl: 'views/viewshow.ejs',
       controller: 'ListingsCtrl'
     })
     .state('myshows', {
@@ -38,11 +38,6 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
       url: '/editshow',
       templateUrl: 'views/editshow.ejs',
       controller: 'ShowCTRL'
-    })
-    .state('pending', {
-      url: '/pending',
-      templateUrl: 'views/pending.ejs',
-      controller: 'PendingCtrl'
     });
 }]);
 
@@ -50,7 +45,7 @@ app.service('listingsService', function($http, constant) {
   var thisService = this;
   this.currentUser = null;
   this.selectEditShowId = null;
-  this.selectedTradeShow = null;
+  this.selectedFavoriteShow = null;
   this.addShow = function(addShow) {
     $http.post(constant.url + 'add_show', addShow)
       .success(function(data) {
@@ -60,6 +55,16 @@ app.service('listingsService', function($http, constant) {
         console.log(error);
       });
   };
+
+  this.addComment = function(addComment) {
+    $http.post(constant.url + 'add_comment', addComment)
+      .success(function(data) {
+        this.Service.getCurrentUser();
+        console.log('successdata', data);
+      }).catch(function(error) {
+        console.log(error);
+      });
+    };
 
   this.editShow = function(editShow) {
     $http.post(constant.url + 'edit_show', editShow)
@@ -75,11 +80,11 @@ app.service('listingsService', function($http, constant) {
     return $http.get(constant.url + 'get_current_user');
   };
 
-  this.getMarketInventory = function() {
-    return $http.get(constant.url + 'markeplace_inventory');
+  this.getEvents = function() {
+    return $http.get(constant.url + 'events_listings');
   };
 
-  this.updateInventory = function() {
+  this.updateEvents = function() {
     return $http.get(constant.url + 'get_current_user');
   };
 
@@ -99,13 +104,13 @@ app.service('listingsService', function($http, constant) {
         console.log(error);
       });
   };
-  this.offerToTrade = function(selectedShow, myShow) {
-    var trade = {
+  this.offerToFavorite = function(selectedShow, myShow) {
+    var favorite = {
                 myOffer : { 'selectedShow' : selectedShow, 'myShow' : myShow, 'myEmail': this.currentUser.email },
                 theirOffer : { 'selectedShow' : myShow, 'myShow' : selectedShow, 'theirEmail' : this.currentUser.email}
               };
-    console.log(trade);
-    $http.patch(constant.url + 'trade_show', trade)
+    console.log(favorite);
+    $http.patch(constant.url + 'favorite_show', favorite)
     .success(function(data){
       console.log(data);
     }).catch(function(error){
@@ -122,55 +127,60 @@ app.controller('ListingsCtrl', function($scope, listingsService) {
   listingsService.getCurrentUser()
   .success(function(currentUser){
     listingsService.currentUser = currentUser;
-    $scope.myShows = currentUser.inventory;
+    $scope.myShows = currentUser.events;
   }).catch(function(error){
     console.log(error);
   });
 
-  listingsService.getMarketInventory()
-  .success(function (listingsInventory) {
-    console.log(listingsInventory);
-    var showInventory = [];
-    listingsInventory.forEach(function(users){
+  listingsService.getEvents()
+  .success(function (listingsEvents) {
+    console.log(listingsEvents);
+    var showEvents = [];
+    listingsEvents.forEach(function(users){
       var userName = users.userName;
       var email = users.email;
-      users.inventory.forEach(function(item){
+      users.events.forEach(function(item){
         item.userName = userName;
         item.email = email;
 
-        showInventory.push(item);
+        showEvents.push(item);
       });
     });
-    console.log(showInventory);
-    $scope.showInventory = showInventory;
+    console.log(showEvents);
+    $scope.showEvents = showEvents;
   }).catch(function(error) {
     console.log(error);
   });
 
-  $scope.selectedShow = listingsService.selectedTradeShow;
+  $scope.selectedShow = listingsService.selectedFavoriteShow;
 
   $scope.addingShow = function(addShow) {
     $scope.addShow = '';
     listingsService.addShow(addShow);
   };
-  $scope.selectedTradeShow = function(selectedTradeShow) {
-    listingsService.selectedTradeShow = selectedTradeShow;
+
+  $scope.addingComment = function(addComment) {
+    $scope.addComment = '';
+    listingsService.addComment(addComment);
+  };
+  $scope.selectedFavoriteShow = function(selectedFavoriteShow) {
+    listingsService.selectedFavoriteShow = selectedFavoriteShow;
   };
 
-  $scope.hideTradeButton = function(show) {
+  $scope.hideFavoriteButton = function(show) {
     return listingsService.currentUser.email === show.email;
   };
 
-  $scope.offerToTrade = function(selectedShow, myShow) {
-    listingsService.offerToTrade(selectedShow, myShow);
+  $scope.offerToFavorite = function(selectedShow, myShow) {
+    listingsService.offerToFavorite(selectedShow, myShow);
   };
 });
 
 app.controller('ShowCTRL', function($scope, listingsService, $state){
-  listingsService.updateInventory()
+  listingsService.updateEvents()
     .success(function(currentUser){
       listingsService.currentUser = currentUser;
-      $scope.myShows = currentUser.inventory;
+      $scope.myShows = currentUser.events;
     }).catch(function(error){
       console.log(error);
     });
@@ -192,7 +202,7 @@ app.controller('PendingCtrl', function($scope, listingsService) {
   listingsService.getPendingOffer()
   .success(function(pendingOffer){
     console.log(pendingOffer);
-    $scope.tradeOffers = pendingOffer;
+    $scope.favoriteOffers = pendingOffer;
   }).catch(function(error){
     console.log(error);
   });
