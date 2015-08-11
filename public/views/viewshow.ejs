@@ -1,11 +1,14 @@
 <div class='container'>
   <div class="row">
-    <h1 class='showinfoheader'>Show Information</h1>
+    <!-- <h1 class='showinfoheader'>Show Information</h1> -->
     <h2 class='castName'>{{selectedShow.castName}}</h2>
-    <div class='col-sm-offset-2 col-sm-7'>
+    <div class='col-xs-offset-2 col-xs-7'>
       <img ng-src='{{selectedShow.viewUrl}}' class="eventsimg">
+      <div class='thatinfobox'>
+        <div class='col-xs-offset-1 otherinfo'>{{selectedShow.otherinfo}}</div>
+      </div>
     </div>
-    <div class="col-sm-3 col-sm-offset viewbox">
+    <div class="col-xs-3 col-xs-offset viewbox">
       <div class='boxblock'>
         <ul class='desiredinfo'>
           <li>Theater: {{selectedShow.theater}}</li>
@@ -13,9 +16,7 @@
           <li>{{selectedShow.address}},
             <br>{{selectedShow.city}}, {{selectedShow.st}}<br> {{selectedShow.zipCode}}</li>
           <hr>
-          <li style='text-align: center'>Show Time</li>
-          <br>
-            <li>{{selectedShow.day}}, {{selectedShow.time}}</li>
+          <li>Show Time: {{selectedShow.day}}, {{selectedShow.time}}</li>
           <hr>
           <li>Phone Number: {{selectedShow.contactNumber}}</li>
           <hr>
@@ -26,9 +27,6 @@
           </div>
         </ul>
       </div>
-    </div>
-    <div class='col-sm-offset-2 col-sm-7 thatinfobox'>
-      <div class='col-sm-offset col-sm-10 otherinfo'>{{selectedShow.otherinfo}}</div>
     </div>
   </div>
 </div>

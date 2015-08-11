@@ -35,7 +35,9 @@ input {
   font-size: 56px;
   color: maroon;
   padding-top: 20px;
-  padding-bottom: 50px
+  padding-bottom: 50px;
+  font: 400 100px/1.3 'Lobster Two', Helvetica, sans-serif;
+  text-shadow: 1px 1px 0px #ededed, 4px 4px 0px rgba(0,0,0,0.15);
 }
 
 /*login*/
@@ -55,6 +57,15 @@ input {
   font-size: 24px;
 }
 
+#login-header3 {
+  text-align:center;
+}
+
+.lips {
+  text-align: center;
+  margin-top: -2%;
+}
+
 #login {
   float:right;
   margin-right: 15px;
@@ -63,6 +74,7 @@ input {
 
 #CCCC {
   color: red;
+  font: 48px 'Lobster Two', Helvetica, sans-serif;
 }
 
 .featured-shows {
@@ -71,9 +83,10 @@ input {
 }
 
 .addshowheader {
-  font-size: 72px;
   text-align: center;
   color: red;
+  font: 400 100px/1.3 'Oleo Script', Helvetica, sans-serif;
+  text-shadow: 4px 4px 0px rgba(0,0,0,0.1);
 }
 
 .addinstructions {
@@ -85,7 +98,8 @@ input {
 }
 
 .myshowsheader {
-  font-size: 72px;
+  font: 400 100px/1.3 'Oleo Script', Helvetica, sans-serif;
+  text-shadow: 4px 4px 0px rgba(0,0,0,0.1);
   text-align: center;
   color: red;
 }
@@ -121,48 +135,40 @@ input {
 
 .todeletepage {
   font-size: 14px;
-}*/
-
-/*events*/
+  float: bottom;
+  margin-right: 5px;
+}
 
 .eventsheader {
   margin-top: 4%;
 }
 
-.tradelink {
-  color: white;
-  font-size: 18px;
-}
-
 h2.showlistings {
+  margin-top: -30px;
   text-align:center;
-  font-size: 72px;
+  font: 400 120px/1.3 'Oleo Script', Helvetica, sans-serif;
+  text-shadow: 4px 4px 0px rgba(0,0,0,0.1);
   color: red;
 }
 
 h4.instructions {
   text-align: center;
-  margin-top: 2%;
   color: white;
-}
-
-.marketlink {
-  font-size: 18px;
 }
 
 .listinglist {
   list-style: none;
   font-size: 20px;
-  margin-bottom: 5%;
-  margin-left: auto;
-  margin-right: auto;
+}
+
+.listinglist li {
+  text-align: center;
+  margin-left: -35px;
 }
 
 .thelistings {
-  text-align: center;
   margin-top: 2%;
-  margin-left: -30px;
-  margin-right: 30px;
+  text-align: center;
 }
 
 .thelistings2 {
@@ -177,6 +183,7 @@ h4.instructions {
   margin-bottom: 20px;
   background-color: silver;
   height: 475px;
+  width: 280px;
 }
 
 .box2 {
@@ -185,9 +192,8 @@ h4.instructions {
   padding: 5px 0px 5px 0px;
   margin-bottom: 20px;
   background-color: silver;
-  height: 500px;
-  width: 95%;
-  margin-right: -30px;
+  height: 385px;
+  width: 100%;
 }
 
 .viewbox {
@@ -214,7 +220,7 @@ h4.instructions {
 }
 
 .eventslistingsimg2 {
-  width: 80%;
+  width: 90%;
   max-height: 75%;
 }
 
@@ -313,7 +319,7 @@ label {
 }
 
 .add-field {
-  width: 400px;
+  width: 100%;
 }
 
 textarea {
@@ -321,8 +327,9 @@ textarea {
 }
 
 .footer {
-  float: bottom;
   float: right;
+  margin-right: 20px;
+  color: #121212;
 }
 
 .CCCCbrand {
@@ -330,12 +337,13 @@ textarea {
  font-family: Monaco;
 }
 .navbar-header {
- background-color: #778899 ;
- margin-top: 20px;
+ background-color: #778899;
 }
 
-.traxbar {
- color: black;
+.CCCCbar {
+ color: red;
+ font: 47px 'Lobster Two', Helvetica, sans-serif;
+ letter-spacing: 7px;
 }
 
 @media (min-width: 768px) {

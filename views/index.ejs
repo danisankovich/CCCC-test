@@ -2,8 +2,9 @@
 <html ng-app="CCCC">
 <head>
   <title>Rocky Roll Call</title>
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css"> -->
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  <link href="http://fonts.googleapis.com/css?family=Lobster+Two" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Oleo+Script" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
   <link rel="stylesheet" href="/stylesheets/style.css">
 
@@ -19,14 +20,13 @@
       <nav role="navigation" class="navbar navbar-default leftnavbar">
         <div class="navbar-header">
           <button type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a ui-sref="home" class="navbar-brand CCCCbrand">
-            <span class="traxheader traxbar">CCCC<span></span></span></a>
+            <span class="CCCCbar">CCCC<span></span></span></a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav">
             <li><a ui-sref="listings" class="navlistings">Show Listings</a></li>
             <li><a ui-sref="myshows" class="navlistings">My Shows</a></li>
             <li><a ui-sref="addshow" class="navlistings">Add Show</a></li>
-            <li><a href="/auth/google" class="googleplus navlistings"><i class="fa fa-google-plus"> Google</i></a></li>
             <li><a href="/logout" class="navlistings">Logout</a></li>
           </ul>
         </div>
@@ -40,11 +40,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <!-- // <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script> -->
   <script src="/javascripts/main.js"></script>
-  <footer>
-    <div class="footer">Copyright 2015, who cares</div>
-  </footer>
+  <div class='footer' style="clear: both">
+    Copyright 2015, Sanky
+  </div>
 
 
 </body>

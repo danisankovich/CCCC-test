@@ -104,11 +104,10 @@ app.service('listingsService', function($http, constant) {
         console.log(error);
       });
   };
-  this.offerToFavorite = function(selectedShow, myShow) {
+  this.ToFavorite = function(selectedShow, myShow) {
     var favorite = {
-                myOffer : { 'selectedShow' : selectedShow, 'myShow' : myShow, 'myEmail': this.currentUser.email },
-                theirOffer : { 'selectedShow' : myShow, 'myShow' : selectedShow, 'theirEmail' : this.currentUser.email}
-              };
+      toFavorite : { 'selectedShow' : selectedShow},
+    };
     console.log(favorite);
     $http.patch(constant.url + 'favorite_show', favorite)
     .success(function(data){
@@ -116,9 +115,6 @@ app.service('listingsService', function($http, constant) {
     }).catch(function(error){
       console.log(error);
     });
-  };
-  this.getPendingOffer = function(){
-    return $http.get(constant.url + 'get_pending_offer');
   };
 });
 
@@ -171,8 +167,8 @@ app.controller('ListingsCtrl', function($scope, listingsService) {
     return listingsService.currentUser.email === show.email;
   };
 
-  $scope.offerToFavorite = function(selectedShow, myShow) {
-    listingsService.offerToFavorite(selectedShow, myShow);
+  $scope.ToFavorite = function(selectedShow, myShow) {
+    listingsService.ToFavorite(selectedShow, myShow);
   };
 });
 
@@ -196,14 +192,4 @@ app.controller('ShowCTRL', function($scope, listingsService, $state){
   $scope.editingShow = function(changedShowValue){
     listingsService.editingShow(changedShowValue);
   };
-});
-
-app.controller('PendingCtrl', function($scope, listingsService) {
-  listingsService.getPendingOffer()
-  .success(function(pendingOffer){
-    console.log(pendingOffer);
-    $scope.favoriteOffers = pendingOffer;
-  }).catch(function(error){
-    console.log(error);
-  });
 });

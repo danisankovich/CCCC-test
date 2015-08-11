@@ -1,23 +1,21 @@
-  <div class='col-sm-offset-1'>
+  <div class='col-xs-offset-1'>
   <div class='eventsheader'>
     <h2 class="showlistings">Show Listings</h2>
     <h4 class='instructions'>Browse through the shows that have been advertised.</h4>
-    <h4 class='instructions'>If you come across one you like, click the 'View Show' for more information.</h4>
+    <h4 class='instructions'>If you come across one you like, click the image for more information.</h4>
   </div>
   <div class='container'>
-  <div class='filter col-sm-6 col-sm-offset-4'><label>Filter: <input ng-model="searchText"></label></div>
-  <div ng-repeat="show in showEvents| filter:searchText" class='thelistings'>
-    <div class='col-sm-3 col-sm-offset-1 box'>
-      <img src='{{show.imageUrl}}' class='eventslistingsimg'>
+  <div class='filter col-xs-9'><label>Filter: <input ng-model="searchText"></label></div>
+  <div ng-repeat="show in showEvents| filter:searchText" class='thelistings col-xs-4'>
+    <div class='box'>
+      <a ui-sref="viewshow" ng-click="selectedFavoriteShow(show)"><img src='{{show.imageUrl}}' class='eventslistingsimg'></a>
         <ul class='listinglist'>
-          <li>City: {{show.city}}</li>
-          <li>Zip Code: {{show.zipCode}}</li>
-          <li>Day: {{show.day}}</li>
-          <li>Time: {{show.time}}</li>
+          <li>{{show.theater}}</li>
+          <li>{{show.address}}</li>
+          <li>{{show.city}}, {{show.st}}</li>
+          <li>{{show.zipCode}}</li>
+          <li>{{show.day}}, {{show.time}}</li>
         </ul>
-        <button class='btn btn-default tradebutton'>
-          <a ui-sref="viewshow" ng-click="selectedFavoriteShow(show)">View Show</a>
-        </button>
     </div>
   </div>
 </div>

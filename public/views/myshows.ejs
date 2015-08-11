@@ -1,14 +1,15 @@
 <div class='container'>
   <h2 class='myshowsheader'>My Shows</h2>
-  <div ng-repeat="show in myShows" class='thelistings2 col-sm-5 col-sm-offset-1'>
+  <div class='col-xs-offset-1'>
+  <div ng-repeat="show in myShows" class='thelistings2 col-xs-3'>
     <div class="box2">
       <img src='{{show.imageUrl}}' class='eventslistingsimg2'>
         <ul class='listinglist'>
-          <li><button ui-sref="editshow" class='todeletepage btn btn-primary' ng-click="editingLink(show)">Edit Listing</button><button class="deletebutton btn btn-danger" ng-click="deleteShow(show)">Delete</button></li>
           <li>{{show.city}}</li>
           <li>{{show.castName}}</li>
         </ul>
+        <button ui-sref="editshow" class='todeletepage btn btn-primary' ng-click="editingLink(show)">Edit</button><button class="todeletepage btn btn-danger" ng-click="deleteShow(show)">Delete</button>
     </div>
   </div>
 </div>
-events
+</div>
