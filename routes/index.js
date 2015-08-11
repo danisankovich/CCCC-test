@@ -3,8 +3,8 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var logout = require('express-passport-logout');
 
-mongoose.connect('mongodb://localhost/CCCC');
-// mongoose.connect(process.env.MONGOLAB_URI);
+// mongoose.connect('mongodb://localhost/CCCC');
+mongoose.connect(process.env.MONGOLAB_URI);
 
 
 var userSchema = new mongoose.Schema({
